@@ -8,6 +8,9 @@ set -euo pipefail
 TARGET_USER="${SUDO_USER:-pi}"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 
+# Bez interaktivnich dotazu (napr. msmtp AppArmor) - pouziji se vychozi odpovedi
+export DEBIAN_FRONTEND=noninteractive
+
 echo "==> 1/5 Instalace balicku"
 apt-get update
 apt-get install -y \
