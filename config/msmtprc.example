@@ -1,0 +1,32 @@
+# ~/.msmtprc  (uzivatele, pod kterym bezi skenovani, typicky "pi")
+# PRAVA:  chmod 600 ~/.msmtprc   - obsahuje heslo!
+#
+# msmtp je maly SMTP klient: vezme hotovy e-mail a preda ho tvemu poskytovateli posty.
+# s-nail (program "mail") e-mail sestavi i s prilohou a zavola /usr/sbin/sendmail = msmtp.
+
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        ~/.msmtp.log
+
+# --- Gmail -------------------------------------------------------------------
+# Normalni heslo NEFUNGUJE. Zapni dvoufazove overeni a vytvor "Heslo aplikace":
+# https://myaccount.google.com/apppasswords  (16 znaku, mezery vynech)
+account        gmail
+host           smtp.gmail.com
+port           587
+from           muj.tiskovy.server@gmail.com
+user           muj.tiskovy.server@gmail.com
+password       abcdabcdabcdabcd
+
+# --- Seznam.cz (alternativa) ---------------------------------------------------
+account        seznam
+host           smtp.seznam.cz
+port           465
+tls_starttls   off
+from           muj.server@seznam.cz
+user           muj.server@seznam.cz
+password       HESLO
+
+account default : gmail

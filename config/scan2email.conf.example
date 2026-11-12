@@ -1,0 +1,25 @@
+# /etc/scan2email.conf - nastaveni skriptu scan2email.sh
+# Toto je JEDINE misto, ktere zmenis, az misto virtualniho skeneru pripojis skutecny.
+
+# SANE zarizeni. Zjistis ho prikazem:  scanimage -L
+#   virtualni skener:   SCAN_DEVICE="test"
+#   skutecny (priklad): SCAN_DEVICE="hpaio:/usb/Deskjet_F2200_series?serial=XXXX"
+#   prazdne = pouzij prvni nalezeny
+SCAN_DEVICE="test"
+
+SCAN_RESOLUTION=200
+# Rezim a zdroj se u kazdeho skeneru jmenuji jinak - zjistis je: scanimage -d "$SCAN_DEVICE" --help
+SCAN_MODE="Color"
+SCAN_SOURCE=""
+SCAN_FORMAT="jpeg"
+SCAN_BATCH=0
+SCAN_OCR=0
+SCAN_OCR_LANG="ces+eng"
+
+# Kam se ukladaji kopie vsech PDF
+SCAN_ARCHIVE="/home/pi/scans"
+
+# E-mail
+MAIL_TO="ja@example.com"
+MAIL_FROM="muj.tiskovy.server@gmail.com"
+MAIL_SUBJECT="Sken"

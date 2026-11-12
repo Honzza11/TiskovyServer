@@ -1,0 +1,19 @@
+# /etc/systemd/system/scan-web.service
+# Webova stranka pro skenovani, spousti se automaticky po startu RPi.
+# install.sh nahradi __USER__ jmenem tveho uzivatele.
+[Unit]
+Description=Webove rozhrani Naskenovat a poslat e-mailem
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=__USER__
+# skupina "scanner" = pristup k USB skeneru, bez ni by skenovani fungovalo jen pod rootem
+SupplementaryGroups=scanner lp
+Environment=SCAN2EMAIL_SCRIPT=/usr/local/bin/scan2email.sh
+EnvironmentFile=-/etc/scan2email.conf
+ExecStart=/usr/bin/python3 /opt/scan-web/app.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
