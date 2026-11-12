@@ -1,0 +1,2 @@
+# TiskovyServer
+Projekt na pss
