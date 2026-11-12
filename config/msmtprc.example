@@ -8,6 +8,8 @@ defaults
 auth           on
 tls            on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
+# bez timeoutu msmtp pri problemu se siti visi donekonecna
+timeout        30
 logfile        ~/.msmtp.log
 
 # --- Gmail -------------------------------------------------------------------
