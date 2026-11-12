@@ -30,6 +30,8 @@ Projekt na PSS: **Tiskový a skenovací server na Raspberry Pi.**
 | `config/msmtprc.example` | → `~/.msmtprc` (SMTP účet, heslo aplikace) |
 | `config/scan-web.service` | systemd služba pro web |
 
+> Nemáš Raspberry Pi? Prototyp ve VirtualBoxu: [docs/VIRTUALBOX.md](docs/VIRTUALBOX.md)
+
 ## Rychlý start
 
 ```bash
